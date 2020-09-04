@@ -147,18 +147,13 @@ h5 {
 
 
 
-  @media screen and (max-width: 767px) {
+@media screen and (max-width: 767px) {
     .navbar {
-      background-color: rgba(117, 155, 68, 0.945);
+        background-color: rgba(117, 155, 68, 0.945);
     }
-  }
-  @media screen and (max-width: 540px) {
-    .container-fluid{
-      margin-left:5vw;
-      margin-right:5vw;
+} 
+@media screen and (max-width: 540px) {
+    footer {
+        text-align: center;
     }
-    
-  footer {
-    text-align: center;
-  }
 }
