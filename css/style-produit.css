@@ -1,0 +1,142 @@
+body{
+    margin-top:70px;
+    color:black;
+}
+
+.container-fluid{
+    margin:0;
+    padding:0 -15px 0 -15px;
+}
+a {
+    color: black;
+}
+
+
+
+/* Navigation */
+.navbar-brand {
+    font-family: "Yellowtail", cursive;
+    font-size: 3rem;
+    margin-left: 10px;
+    color: #332206;
+}
+.navbar-brand:hover{
+  color: #58441b;
+}
+
+.navbar .icon-bar {
+  background-color: white;
+}
+
+.navbar-color {
+  background-color: rgba(117, 155, 68, 0.945);
+}
+
+
+.btn-nav-bg {
+  background-color: rgba(117, 155, 68, 0.945);
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.btn-nav-bg:hover {
+  background: #eeeeee;
+}
+.btn-nav-bg a {
+  text-decoration: none;
+}
+
+.collapse ul {
+  margin-right: 0px;
+}
+.collapse ul a {
+  font-size: 1.6rem;
+}
+
+
+
+
+
+
+
+.btn-taille{
+    box-shadow: 2px 2px 5px grey ;
+    margin: 15px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* FOOTER */
+  
+footer {
+    background-color: #dacec2;
+    padding: 20px;
+    margin-top:20px;
+  }
+  footer ul, footer p {
+    list-style: none;
+    padding-left: 10px;
+    color: #656e68;
+  }
+  footer .mention {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+  footer .social {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  footer form {
+    margin-left: 5px;
+  }
+  footer a {
+    color: #656e68;
+  }
+  
+
+
+
+
+
+
+
+  @media screen and (max-width: 767px) {
+    .navbar {
+      background-color: rgba(117, 155, 68, 0.945);
+    }
+  }
+  @media screen and (max-width: 540px) {
+    .container-fluid{
+      margin-left:5vw;
+      margin-right:5vw;
+    }
+    
+  footer {
+    text-align: center;
+  }
+}

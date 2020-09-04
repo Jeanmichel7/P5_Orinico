@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orinoco</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+    <!-- Google font-->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Lobster&family=Pangolin&family=Yellowtail&display=swap"
+        rel="stylesheet">
+    <link href="css/style-produit.css" rel="stylesheet">
+
+
+
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+
+<body>
+    <div class="container-fluid">
+        <header>
+            <!-- barre de navigation-->
+            <nav class="navbar navbar-fixed-top">
+
+                <!--Bouton Menu en responsive-->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Orinoco</a>
+                </div>
+
+                <!-- Menu-->
+                <div class="collapse navbar-collapse navbar-color">
+                    <ul class="nav navbar-nav pull-right">
+
+                        <li><a href="index.html">Accueil</a></li>
+
+                        <li>
+                            <div class="btn-group">
+                                <button class="btn btn-nav-bg navbar-btn"><a href="#">Menu 1</a></button>
+                                <button data-toggle="dropdown" class="btn btn-nav-bg navbar-btn dropdown-toggle"><span
+                                        class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Sous-menu</a></li>
+                                    <li><a href="#">Sous-menu</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Sous-menu</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li><a href="influence.html">Menu 2</a></li>
+                        <li><a href="association.html">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <main>
+            <section class="container">
+                <div class="row">
+                    <div class="col-sm-6 thumbnail">
+                        <img src="img/teddy_1.jpg">     <!-- image a remplasser-->
+                    </div>
+                    <div class="col-sm-6">
+                        <article>
+                            <h1>Ours en peluche trop bien</h1>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, libero, autem esse veniam
+                                quisquam facilis voluptates aperiam exercitationem, amet corporis quo voluptatibus
+                                tenetur earum recusandae sunt ad et quibusdam maiores.
+                            </p>
+
+
+                            <h2>Taille </h2>
+                            <div class="btn-tailles">
+                                <button id="taille_X" class="btn btn-taille">S</button>
+                                <button id="taille_M" class="btn btn-taille">M</button>
+                                <button id="taille_L" class="btn btn-taille">L</button>
+                                <button id="taille_XL" class="btn btn-taille">XL</button>
+                            </div>
+                        </article>
+
+                        <button class="btn btn-default"><a href="panier.html">Ajouter au panier</a></button>  
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </main>
+
+
+
+        <!--  Footer  -->
+        <footer>
+            <section>
+                <div class="row">
+                    <!-- Contact -->
+                    <article class="col-xs-6 col-sm-4 col-md-4">
+                        <h5>NOUS CONTACTER</h5>
+                        <ul>
+                            <li>Nom et prénom</li>
+                            <li>12 Rue du là-bas loin</li>
+                            <li>68600, Par-là-bas</li>
+                            <li>06 52 63 85 46</li>
+                            <li>adressecontact@hotmail.fr</li>
+                        </ul>
+                    </article>
+
+                    <!--Reseau sociaux-->
+                    <article class="col-xs-6 col-sm-4 col-md-4">
+                        <h5>SUIVEZ NOUS</h5>
+                        <div class="reseausociaux">
+                            <a class="social" href="#" title="Twitter"><span class="fa fa-twitter fa-2x"></span></a>
+                            <a class="social" href="#" title="Facebook"><span class="fa fa-facebook fa-2x"></span></a>
+                            <a class="social" href="#" title="Tuconnais?"><span class="fa fa-dribbble fa-2x"></span></a>
+                            <a class="social" href="#" title="Instagram"><span class="fa fa-instagram fa-2x"></span></a>
+                        </div>
+                    </article>
+
+                    <!-- Newsletter-->
+                    <article class="col-xs-7 col-sm-4 col-md-4">
+                        <h5>UNE IDEE ?</h5>
+                        <p>Une idée? Une suggestion ? Partagez nous là.</p>
+                        <form class="form">
+                            <div class="form-group">
+                                <textarea type="text" class="form-control" placeholder="Un conseil ?"
+                                    title="jeaispasencorequoiécririci" rows="5"></textarea>
+                                <button id="btnform" type="button" class="btn btn-default">Envoyez</button>
+                            </div>
+                        </form>
+                    </article>
+                </div>
+            </section>
+            <p class="mention">
+                <a href="#">Mentions légales</a> -
+                <a href="#">Cookies</a> -
+                <a href="#">GithubPages</a>
+            </p>
+        </footer>
+    </div>
+</body>
+
+</html>
