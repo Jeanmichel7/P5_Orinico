@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="css/style-produit.css">
+    <link rel="stylesheet" href="css/style-confirm.css">
 
 
 
@@ -36,7 +36,6 @@
     <div class="container-fluid">
         <header>
             <!-- barre de navigation-->
-            
             <nav class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark">
 
                 <a class="navbar-brand" href="index.html">Orinoro</a>
@@ -51,13 +50,13 @@
                             <a class="nav-link" href="index.html">Index</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Produit</a>
+                            <a class="nav-link" href="produit.html">Produit</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="panier.html">Panier</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="confirm.html">Confirm</a>
+                            <a class="nav-link" href="#">Confirm</a>
                         </li>
                     </ul>
                 </div>
@@ -67,75 +66,60 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <main>
-            <section class="container">
-                <div class="row">
-                    <div class="col-sm-6 thumbnail">
-                        <img src="img/teddy_1.jpg" class="img-thumbnail">     <!-- image a remplasser-->
-                    </div>
-                    <div class="col-sm-6">
-                        <article>
-                            <h1>Ours en peluche trop bien</h1>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, libero, autem esse veniam
-                                quisquam facilis voluptates aperiam exercitationem, amet corporis quo voluptatibus
-                                tenetur earum recusandae sunt ad et quibusdam maiores.
-                            </p>
-
-
-                            <h2>Taille </h2>
-                            <form class="form-inline">
-                                <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Préference</label>
-                                <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                                  <option selected>Tailles</option>
-                                  <option value="1">S</option>
-                                  <option value="2">M</option>
-                                  <option value="3">L</option>
-                                  <option value="4">XL</option>
-                                </select>
-                              
-                                <div class="custom-control custom-checkbox my-1 mr-sm-2">
-                                  <input type="checkbox" class="custom-control-input" id="customControlInline">
-                                  <label class="custom-control-label" for="customControlInline">Se rappeler de mon choix</label>
+            <div class="container">
+        
+                <!-- résumé des produits du panier
+                    prix total
+                
+                    formulaire de commande
+                    -->
+        
+                <section>
+                    <h1>Commande confirmée !</h1>
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <P>La commande a bien été passé.</p>
+                            <p> Merci pour votre confiance. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora
+                                autem iure
+                                incidunt debitis, modi amet beatae.</P>
+                        </div>
+                        <div class="col-sm-2 offset-sm-1">
+                            <p>Total : <span class="bold">550 €</span></p>
+                            <p>Identifiant </p>
+                        </div>
+                        <div class="col-sm-12">
+                            <h2>Résumé de la commande</h2>
+                            <article>
+                                <div id="produit1" class="row img-thumbnail">
+                                    <div id="image-produit" class="col-sm-2">
+                                        <img src="img/teddy_1.jpg" class="img-thumbnail" class="vertical-center"></img>
+                                    </div>
+                                    <div id="description-produit" class="col-sm-8">
+                                        <p>Ours en peluche tip top qualitée</p>
+                                    </div>
+                                    <div id="prix-produit" class="col-sm-2">
+                                        <p>150€</p>
+                                    </div>
                                 </div>
-                              
-                                <button type="submit" class="btn btn-primary my-1 btn-panier"><a href="panier.html">Envoyer</a></button>     
-                              </form>
-                        </article>
+        
+                                <div id="produit2" class="row img-thumbnail">
+                                    <div id="image-produit" class="col-sm-2">
+                                        <img src="img/teddy_1.jpg" class="img-thumbnail"></img>
+                                    </div>
+                                    <div id="description-produit" class="col-sm-8">
+                                        <p>Ours en peluche tip top qualitée</p>
+                                    </div>
+                                    <div id="prix-produit" class="col-sm-2">
+                                        <p>150€</p>
+                                    </div>
+                                </div>
+                            </article> 
+                        </div>
                     </div>
-                </div>
-            </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                </section>
+        
+            </div>
         </main>
 
 
@@ -159,7 +143,7 @@
                     <!--Reseau sociaux-->
                     <article class="col-xs-6 col-sm-4 col-md-4">
                         <h5>SUIVEZ NOUS</h5>
-                        <div class="reseausociaux">
+                        <div class="reseausociaux mt-3">
                             <a class="social" href="#" title="Twitter"><span class="fa fa-twitter fa-2x"></span></a>
                             <a class="social" href="#" title="Facebook"><span class="fa fa-facebook fa-2x"></span></a>
                             <a class="social" href="#" title="Tuconnais?"><span class="fa fa-dribbble fa-2x"></span></a>
@@ -175,7 +159,7 @@
                             <div class="form-group">
                                 <textarea type="text" class="form-control" placeholder="Un conseil ?"
                                     title="jeaispasencorequoiécririci" rows="3"></textarea>
-                                <button id="btnform" type="button" class="btn btn-default">Envoyez</button>
+                                <button id="btnform" type="button" class="btn btn-secondary mt-3">Envoyez</button>
                             </div>
                         </form>
                     </article>

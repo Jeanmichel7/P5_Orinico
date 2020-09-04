@@ -18,20 +18,21 @@ a {
     margin-right:20px;
     font-weight: bold;
 }
-
+.bold{
+    font-weight: bold;
+}
 
 h1{
     margin-bottom:30px;
+    margin-top:120px;
+    font-size:2rem;
 }
 
 h2{
     font-size:1.6rem;
     margin-bottom:20px;
+    margin-top:20px;
 }
-h3{
-    font-size:1rem;
-}
-
 
 
 
@@ -59,8 +60,6 @@ h3{
 .navbar-color {
     background-color: rgba(117, 155, 68, 0.945);
 }
-
-
 .btn-nav-bg {
     background-color: rgba(117, 155, 68, 0.945);
     margin-top: 0;
@@ -87,6 +86,10 @@ h3{
 article > p{
     margin-top:20px;
 }
+
+
+
+
 
 
 

@@ -46,7 +46,7 @@ section{
 body {
   margin-top: 100px;
   background-color: #fcf9f4;
-  font-size: 1.6rem;
+  font-size: 1rem;
 }
 
 h1 {
@@ -57,6 +57,7 @@ h1 {
 }
 
 h2 {
+  font-size:1.7rem;
   padding-left:40px;
   color: #475a51;
   font-weight: bold;
@@ -64,7 +65,7 @@ h2 {
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: 1.2rem;
   font-family: "Indie Flower", cursive;
 }
 
@@ -79,29 +80,10 @@ h4 {
 h5 {
   font-weight: bold;
   color: #475a51;
-  margin-top: 30px;
+  margin-top: 25px;
   margin-left: 10px;
 }
 
-.underline-titre {
-  height: 2px;
-  width: 10vw;
-  border-radius: 2px;
-  margin-top: 20px;
-  background-color: #859189;
-  margin-bottom: 30px;
-}
-
-.underline-titre-center {
-  height: 2px;
-  width: 10vw;
-  border-radius: 2px;
-  margin-top: 20px;
-  background-color: #859189;
-  margin-bottom: 30px;
-  margin-right: auto;
-  margin-left: auto;
-}
 
 a {
   color: black;
@@ -121,8 +103,6 @@ a {
 
   padding-bottom:0px;
 
-  max-height: 800px;
-  min-height: 300px;
 }
 
 .article img {
@@ -143,43 +123,23 @@ a {
 /* Navigation */
 .navbar-brand {
   font-family: "Yellowtail", cursive;
-  font-size: 3rem;
+  font-size: 2rem;
   margin-left: 10px;
-  color: #332206;
-}
-.navbar-brand:hover{
-  color: #58441b;
-}
-
-.navbar .icon-bar {
-  background-color: white;
-}
-
-.navbar-color {
-  background-color: rgba(117, 155, 68, 0.945);
-}
-
-
-.btn-nav-bg {
-  background-color: rgba(117, 155, 68, 0.945);
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-top: 12px;
-  padding-bottom: 12px;
-}
-.btn-nav-bg:hover {
-  background: #eeeeee;
-}
-.btn-nav-bg a {
-  text-decoration: none;
 }
 
 .collapse ul {
   margin-right: 0px;
 }
 .collapse ul a {
-  font-size: 1.6rem;
+  font-size: 1.2rem;
 }
+
+
+
+
+
+
+
 
 
 
@@ -238,76 +198,11 @@ main .underline {
     background-color: #918e85;
     margin-left: 60px;
   }
-main .underline-center {
-  height: 2px;
-  width: 50px;
-  margin-bottom: 30px;
-  border-radius: 2px;
-  background-color: #859189;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 
 
 
 
-
-main #ptsdevente {
-  background-color: #fcf9f4;
-  padding-bottom: 30px;
-}
-main #ptsdevente ul {
-  list-style: none;
-  text-align: center;
-}
-main #ptsdevente li {
-  color: #859189;
-  font-family: "Indie Flower", cursive;
-  font-size: 2rem;
-}
-main #ptsdevente .bold {
-  font-weight: bold;
-}
-main #ptsdevente .contact1 {
-  padding-right: auto;
-  padding-left: auto;
-}
-
-
-
-
-
-main #ptsderetrait {
-  background-color: #fcf9f4;
-  padding-bottom: 30px;
-}
-main #ptsderetrait ul {
-  list-style: none;
-  text-align: center;
-}
-main #ptsderetrait li {
-  color: #859189;
-  font-family: "Indie Flower", cursive;
-  font-size: 2rem;
-}
-main #ptsderetrait .bold {
-  font-weight: bold;
-}
-main #ptsderetrait .contact1 {
-  padding-right: auto;
-  padding-left: auto;
-}
-
-
-
-
-
-
-main .contact {
-  margin-bottom: 50px;
-  padding-right: 40px;
-}
 
 
 
@@ -319,7 +214,8 @@ main .contact {
 
 footer {
   background-color: #dacec2;
-  padding: 20px;
+  padding-left: 2vw;
+  padding-right:2vw;
 }
 footer ul, footer p {
   list-style: none;
@@ -328,7 +224,7 @@ footer ul, footer p {
 }
 footer .mention {
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
 }
 footer .social {
   padding-left: 10px;
@@ -341,16 +237,26 @@ footer a {
   color: #656e68;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media screen and (max-width: 767px) {
   .navbar {
     background-color: rgba(117, 155, 68, 0.945);
   }
 }
 @media screen and (max-width: 540px) {
-  .container-fluid{
-    margin-left:5vw;
-    margin-right:5vw;
-  }
+  
   h1 {
     font-size: 3rem;
   }
