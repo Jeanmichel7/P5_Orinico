@@ -84,31 +84,31 @@ h3{
 
 
 
+
+
+
+
 article > p{
     margin-top:20px;
 }
-
-
-
-
-
-
-#image-produit img{
-    width: 10vw;
-    margin:0;
+article img{
+    width:7vw;
+    min-width:80px;
 }
-#description-produit{  
-    padding-left:50px;
-    
+.center{
+    justify-items: center;
 }
-#prix-produit{
-    display:flex;
-    justify-content: center;
+
+
+
+#contenu-tableau td{
+    vertical-align: middle;
 }
-#vertical-center{
-    margin-top:auto;
-    margin-bottom:auto;
-}
+
+
+
+
+
 
 
 

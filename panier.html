@@ -68,56 +68,44 @@
 
         <main>
             <div class="container">
-
-        
-        
-
-
-
-
-            <!-- résumé des produits du panier
-            prix total
-        
-            formulaire de commande
-            -->
-
             
             <section>
                 <h1>Panier</h1>
                 <div class="row">
-                    <div class="col-sm-8">
+                    <div class="col-md-8">
                         <h2>Produits du panier</h2>
-                        <article>
-                            <div id="produit1" class="row img-thumbnail">
-                                <div id="image-produit" class="col-sm-2">
-                                    <img src="img/teddy_1.jpg" class="img-thumbnail" class="vertical-center"></img>
-                                </div>
-                                <div id="description-produit" class="col-sm-8">
-                                    <h3>Ours en peluche tip top qualitée</h3>
-                                </div>
-                                <div id="prix-produit" class="col-sm-2">
-                                    <p>150€</p>
-                                </div>
-                            </div>
 
-                            <div id="produit2" class="row img-thumbnail">
-                                <div id="image-produit" class="col-sm-2">
-                                    <img src="img/teddy_1.jpg" class="img-thumbnail"></img>
-                                </div>
-                                <div id="description-produit" class="col-sm-8">
-                                    <h3>Ours en peluche tip top qualitée</h3>
-                                </div>
-                                <div id="prix-produit" class="col-sm-2">
-                                    <p>150€</p>
-                                </div>
-                            </div>
+                        <article>
+                            <table class="table table-striped">
+                                <thead>
+                                  <tr id="titre-tableau">
+                                    <th scope="col"></th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Quantitée</th>
+                                    <th scope="col">Prix Unitaire</th>
+                                    <th scope="col">Prix</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr id="contenu-tableau">
+                                    <th scope="row"><img src="img/teddy_1.jpg" class="img-thumbnail" class="vertical-center"></img></th>
+                                    <td>Ours en peluche trop bien</td>
+                                    <td class="center">2</td>
+                                    <td class="center">20€ / u</td>
+                                    <td class="center">40€</td>
+                                  </tr>
+                                </tbody>
+                              </table>
                         </article>
 
                         <article>
                             <p>Total : <span  class="prix">350 €</span></p>
                         </article>
                     </div>
-                    <div class="col-sm-4">
+
+
+
+                    <div class="col-md-4">
                         <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa natus quaerat expedita illum
                             id, officiis illo dolorum assumenda facilis vitae molestias consectetur nesciunt inventore
                             accusamus at eius minima. Amet, totam.</P>
@@ -195,7 +183,7 @@
                             </label>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Valider</button>
+                    <button type="submit" class="btn btn-secondary">Valider</button>
                 </form>
                 </div>
             </section>
@@ -270,5 +258,7 @@
         </footer>
     </div>
 </body>
+
+<script src="js/panier.js"></script>
 
 </html>

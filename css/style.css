@@ -181,15 +181,6 @@ main .presentation-image .small {
 
 
 
-
-main .underline-center-article {
-    height: 1px;
-    width: 100%;
-    background-color: #947022;
-
-    margin-left:auto;
-    margin-right:auto;
-}
 main .underline {
     height: 2px;
     width: 50px;

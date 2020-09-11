@@ -97,24 +97,28 @@
 
 
                             <h2>Taille </h2>
-                            <form class="form-inline">
-                                <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Préference</label>
-                                <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                                  <option selected>Tailles</option>
-                                  <option value="1">S</option>
-                                  <option value="2">M</option>
-                                  <option value="3">L</option>
-                                  <option value="4">XL</option>
-                                </select>
-                              
-                                <div class="custom-control custom-checkbox my-1 mr-sm-2">
-                                   <!-- inline form--> 
-                                    <input type="checkbox" class="custom-control-input" id="customControlInline">
-                                    <input type="number" class="form-control">
+                            <form>
+                                <div class="form-inline">
+                                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Préference :</label>
+                                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                                        <option selected>Tailles</option>
+                                        <option value="1">S</option>
+                                        <option value="2">M</option>
+                                        <option value="3">L</option>
+                                        <option value="4">XL</option>
+                                    </select>
                                 </div>
-                              
-                                <button type="submit" class="btn btn-primary my-1 btn-panier"><a href="panier.html">Ajouter au panier</a></button>     
-                              </form>
+                                
+                                <div class="form-inline">
+                                    <label class="my-1 mr-2" for="quantitée"> Quantitée : </label>
+                                    <input type="number" class="form-control" min="0" id="quantitée" placeholder="1" size="10">
+                                </div>
+
+                                <div>
+                                    <button type="submit" class="btn btn-secondary my-1 btn-panier"><a href="panier.html">Ajouter au panier</a></button>     
+                                </div>
+
+                            </form>
                         </article>
                     </div>
                 </div>
@@ -176,7 +180,7 @@
                             <div class="form-group">
                                 <textarea type="text" class="form-control" placeholder="Un conseil ?"
                                     title="jeaispasencorequoiécririci" rows="3"></textarea>
-                                <button id="btnform" type="button" class="btn btn-default">Envoyez</button>
+                                <button id="btnform" type="button" class="btn btn-secondary">Envoyez</button>
                             </div>
                         </form>
                     </article>
@@ -190,5 +194,7 @@
         </footer>
     </div>
 </body>
+
+<script src="js/produit.js"></script>
 
 </html>
