@@ -10,52 +10,60 @@ fetch('http://localhost:3000/api/teddies/' + id)
     .then(function (response) {
         return response.json()
     }).then(function (data) {
+
         console.log(data)
 
-        //const article = document.getElementById('article')
+        // on récupère le lien des éléments à afficher
         const image = document.getElementById('image')
         const name = document.getElementById("name")
         const description = document.getElementById("description")
-        const colors = document.getElementById("inlineFormCustomSelectPref")
-
-        
-       
-        image.innerHTML += `<img src="${data.imageUrl}" class="img-thumbnail">`    
-        name.innerHTML += `${data.name}`    
-        description.innerHTML += `${data.description}`  
-             
-        //data.colors.array.forEach(element => index {
-        //    colors.innerHTML += `${data.colors[index]}` 
-        //});
+        const selectColor = document.getElementById("color")
 
 
+        //on affiche les élements dynamiquement
+        image.innerHTML += `<img src="${data.imageUrl}" class="img-thumbnail">`
+        name.innerHTML += `${data.name}`
+        description.innerHTML += `${data.description}`
+
+
+        // Afficher les couleurs dispo
         for (let i=0 ; i< data.colors.length; i++) {
-            console.log(i)
+            selectColor.innerHTML += `<option>${data.colors[i]}</option>`
         }
-                
-                /*
-                boucle pour afficher la couleur  : foreach
-
-                local storage pour la quantité de nounours 
-                */
 
 
-                    // lorsque je clique sur "ajouter au panier"
-                    // je regarde la valeur de l'input
-                    // je l'ajoute au localstorage
+        // lorsque je clique sur "ajouter au panier"
+        // je regarde la valeur de l'input
+        // je l'ajoute au localstorage
+
+       
+        // récupère le bouton
+        let submit = document.getElementById("btn")
+        console.log(submit)
+
+        // on écoute quand on click dessus
+        submit.addEventListener('click', function (e) {
+            //e.preventDefault()
+
+            // on récupère la valeur de l'input
+            var valeurInput = document.getElementById("quantite").value
+            console.log(valeurInput)
+
+            // on supprime tout le local storage
+            localStorage.clear()
+
+            //on vérifie si il y en a déja avant
+                // si oui on rajoute
+                // sinon on créé
 
 
-               let btnEnvoyer = document.querySelector("#btn")
+            // on créer une liste et on push ?
 
-               btnEnvoyer.addEventListener('click', function(e){
-                    localStorage.setItem('quantité', '1');
-                    console.log(localStorage)
-               })
 
+            // on l'envoie sur le localstorage
+            localStorage.setItem(id, valeurInput);
+            console.log(localStorage)
+        })
+        
     })
 
-
-
-
-    // var input = document.getElementById("quantite").value;
-    // console.log(input)
