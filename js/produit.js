@@ -4,6 +4,17 @@ let id = params.get('id')
 console.log(id)  
 
 
+class Product {
+    constructor (id, name, price, imageUrl, quantity) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.imageUrl = imageUrl;
+        this.quantity = quantity;
+    }
+}
+
+
 // fetch les propriétés
 fetch('http://localhost:3000/api/teddies/' + id)
     .then(function (response) {
@@ -30,23 +41,41 @@ fetch('http://localhost:3000/api/teddies/' + id)
             selectColor.innerHTML += `<option>${data.colors[i]}</option>`
         }
 
-
-        // lorsque je clique sur "ajouter au panier"
-        // je regarde la valeur de l'input
-        // je l'ajoute au localstorage
-
        
         // récupère le bouton
         let submit = document.getElementById("btn")
         console.log(submit)
 
+
         // on écoute quand on click dessus
         submit.addEventListener('click', function (e) {
-            //e.preventDefault()
+            e.preventDefault()
 
             // on récupère la valeur de l'input
-            var valeurInput = document.getElementById("quantite").value
-            console.log(valeurInput)
+            var valeurInput = parseInt(document.getElementById("quantite").value)
+
+            // je créer l'objet a partir de la classe
+            let product = new Product(id ,data.name, data.price, data.imageUrl, valeurInput)
+            console.log(product)
+            
+            if ( )
+
+            let products = localStorage.getItem('products')
+/*
+let product = '' //;
+let productArray = [product];
+let productString = JSON.parse(productArray);
+localStorage.setItem('products', productString) 
+*/
+
+
+
+
+            // si le produit est dans le local storage
+                // je rajoute la valeur de l'input à l'ancienne valeur
+
+            // sinon je rajoute le produit dans le tableau de produits du localstorage 
+           
 
             // on supprime tout le local storage
             //localStorage.clear()
@@ -55,14 +84,12 @@ fetch('http://localhost:3000/api/teddies/' + id)
                 // si oui on rajoute
                 // sinon on créé
 
-            if (localStorage.getItem(id) < 1) {
+            /*if (localStorage.getItem(id) < 1) {
                 localStorage.setItem(id, valeurInput)
-                console.log(localStorage.getItem(id))
+                
             } else {
                 localStorage.setItem(id) = localStorage.setItem(id, valeurInput)
-            }
-
-            // on créer une liste et on push ?
+            }*/
 
 
             // on l'envoie sur le localstorage
@@ -71,4 +98,15 @@ fetch('http://localhost:3000/api/teddies/' + id)
         })
         console.log(localStorage)
     })
+
+
+
+
+
+// on écoute le click
+// on créer l'objet product 
+    // si le produit est aps dans le local sotrage
+    // on l'ajoute
+
+    // sinon on incrémente la valeur de quantity par la valeurinput
 
