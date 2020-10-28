@@ -49,20 +49,26 @@ fetch('http://localhost:3000/api/teddies/' + id)
             console.log(valeurInput)
 
             // on supprime tout le local storage
-            localStorage.clear()
+            //localStorage.clear()
 
             //on vérifie si il y en a déja avant
                 // si oui on rajoute
                 // sinon on créé
 
+            if (localStorage.getItem(id) < 1) {
+                localStorage.setItem(id, valeurInput)
+                console.log(localStorage.getItem(id))
+            } else {
+                localStorage.setItem(id) = localStorage.setItem(id, valeurInput)
+            }
 
             // on créer une liste et on push ?
 
 
             // on l'envoie sur le localstorage
-            localStorage.setItem(id, valeurInput);
-            console.log(localStorage)
+            //localStorage.setItem(id, valeurInput);
+            
         })
-        
+        console.log(localStorage)
     })
 

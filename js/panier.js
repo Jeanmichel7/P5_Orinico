@@ -8,8 +8,7 @@ const getUsers = async function() {
 
             const categorie = document.getElementById('produits')
             
-
-            for (let article in data) {
+            /*for (article of data) {
                 let description = article.name
                 let quantite = localStorage.getItem(article._id)
                 let prix = article.price
@@ -25,33 +24,8 @@ const getUsers = async function() {
                 <td class="center">${quantite}</td>
                 <td class="center">${prix} €/u</td>
                 <td class="center">${prixProduits} €</td>
-            </tr>
-                `
-            }
-
-
-
-            
-            
-            for (article of data) {
-                let description = article.name
-                let quantite = localStorage.getItem(article._id)
-                let prix = article.price
-                let prixProduits = localStorage.getItem(article._id) * article.price
-                
-
-                categorie.innerHTML += `
-                <tr id="contenu-tableau">
-                <th scope="row">
-                    <img src="${article.imageUrl}" class="vertical-center"></img>  
-                </th>
-                <td>${description}</td>
-                <td class="center">${quantite}</td>
-                <td class="center">${prix} €/u</td>
-                <td class="center">${prixProduits} €</td>
-            </tr>
-                `
-            }
+            </tr>`
+            }*/
 
             let prixTotal = document.getElementById("prix-total")
             prixTotal.innerHTML +=`
@@ -59,6 +33,30 @@ const getUsers = async function() {
 
             `
 
+            data.forEach(function(article) {
+                let description = article.name
+                let quantite = localStorage.getItem(article._id)
+                let prix = article.price
+                let prixProduits = localStorage.getItem(article._id) * article.price
+                
+                if (quantite == null) {
+                    quantite = 0
+                }
+                
+
+                categorie.innerHTML += `
+                <tr id="contenu-tableau">
+                <th scope="row">
+                    <img src="${article.imageUrl}" class="vertical-center"></img>  
+                </th>
+                <td>${description}</td>
+                <td class="center">${quantite}</td>
+                <td class="center">${prix} €/u</td>
+                <td class="center">${prixProduits} €</td>
+            </tr>
+                `
+                
+            })
 
         }
         else{
