@@ -40,73 +40,35 @@ fetch('http://localhost:3000/api/teddies/' + id)
         for (let i=0 ; i< data.colors.length; i++) {
             selectColor.innerHTML += `<option>${data.colors[i]}</option>`
         }
-
        
         // récupère le bouton
         let submit = document.getElementById("btn")
-        console.log(submit)
-
-
-        // on écoute quand on click dessus
+      
+        // on écoute quand on click sur le bouton
         submit.addEventListener('click', function (e) {
             e.preventDefault()
 
             // on récupère la valeur de l'input
             var valeurInput = parseInt(document.getElementById("quantite").value)
 
-            // je créer l'objet a partir de la classe
-            let product = new Product(id ,data.name, data.price, data.imageUrl, valeurInput)
-            console.log(product)
-            
-            if ( )
+            // je créer l'objet a partir de la classe Product
+            // Méthode prototype
+            let product = new Product(id ,data.name, data.price, data.imageUrl, valeurInput) // creation d'un nouvel objet Product
 
-            let products = localStorage.getItem('products')
-/*
-let product = '' //;
-let productArray = [product];
-let productString = JSON.parse(productArray);
-localStorage.setItem('products', productString) 
-*/
-
-
-
-
-            // si le produit est dans le local storage
-                // je rajoute la valeur de l'input à l'ancienne valeur
-
-            // sinon je rajoute le produit dans le tableau de produits du localstorage 
-           
-
-            // on supprime tout le local storage
-            //localStorage.clear()
-
-            //on vérifie si il y en a déja avant
-                // si oui on rajoute
-                // sinon on créé
-
-            /*if (localStorage.getItem(id) < 1) {
-                localStorage.setItem(id, valeurInput)
-                
-            } else {
-                localStorage.setItem(id) = localStorage.setItem(id, valeurInput)
-            }*/
-
-
-            // on l'envoie sur le localstorage
-            //localStorage.setItem(id, valeurInput);
-            
-        })
-        console.log(localStorage)
+            if(localStorage.getItem('products') === null) { // On s'assure qu'il existe l'objet 'products' dans le localStorage
+                const productArray = [product]
+                localStorage.setItem('products', JSON.stringify(productArray)) // on le crée si ça n'existe pas
+            } else { 
+                 // si le produit est dans le local storage
+                 const products = JSON.parse(localStorage.getItem('products')); // on récupére les produits sous forme de tableau
+                 const foundProduct = products.filter((produit) => produit.id === product.id); // on vérifie si dans ce tableau il contient le produit qu'on s'apprete à ajouter
+                 if(foundProduct.length > 0) { 
+                     foundProduct[0].quantity += valeurInput  
+                 } else { 
+                     products.push(product)
+                 }
+                 localStorage.setItem('products', JSON.stringify(products))
+            }
+        })  
     })
-
-
-
-
-
-// on écoute le click
-// on créer l'objet product 
-    // si le produit est aps dans le local sotrage
-    // on l'ajoute
-
-    // sinon on incrémente la valeur de quantity par la valeurinput
 
