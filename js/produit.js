@@ -46,28 +46,31 @@ fetch('http://localhost:3000/api/teddies/' + id)
       
         // on écoute quand on click sur le bouton
         submit.addEventListener('click', function (e) {
-            e.preventDefault()
+            //e.preventDefault()
 
             // on récupère la valeur de l'input
             var valeurInput = parseInt(document.getElementById("quantite").value)
-
             // je créer l'objet a partir de la classe Product
-            // Méthode prototype
             let product = new Product(id ,data.name, data.price, data.imageUrl, valeurInput) // creation d'un nouvel objet Product
+ 
+         
 
-            if(localStorage.getItem('products') === null) { // On s'assure qu'il existe l'objet 'products' dans le localStorage
-                const productArray = [product]
-                localStorage.setItem('products', JSON.stringify(productArray)) // on le crée si ça n'existe pas
-            } else { 
-                 // si le produit est dans le local storage
-                 const products = JSON.parse(localStorage.getItem('products')); // on récupére les produits sous forme de tableau
-                 const foundProduct = products.filter((produit) => produit.id === product.id); // on vérifie si dans ce tableau il contient le produit qu'on s'apprete à ajouter
-                 if(foundProduct.length > 0) { 
-                     foundProduct[0].quantity += valeurInput  
-                 } else { 
-                     products.push(product)
-                 }
-                 localStorage.setItem('products', JSON.stringify(products))
+            //on vérifie que products existe dans le local sotrage
+            if ( localStorage.getItem('products') === null ) {
+                localStorage.setItem('products', JSON.stringify([product]))
+            } else {
+                // si c'est le mm produit => on ajoute la valeur de l'input a la quantité
+                const products = JSON.parse(localStorage.getItem('products'))
+                const produitFiltre = products.filter((test) => test.id == product.id)
+
+                if (produitFiltre.length > 0) {
+                    produitFiltre[0].quantity += valeurInput
+                } else {
+                    products.push(product)
+                }
+
+                localStorage.setItem('products', JSON.stringify(products))
+
             }
         })  
     })

@@ -13,7 +13,7 @@
 
     <!-- Google font-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/style-panier.css">
 
@@ -43,7 +43,7 @@
                     aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-    
+
                 <div class="collapse navbar-collapse" id="navbarToggler2">
                     <ul class="navbar-nav mr-auto mt-lg-0">
                         <li class="nav-item">
@@ -68,139 +68,133 @@
 
         <main>
             <div class="container">
-            
-            <section>
-                <h1>Panier</h1>
-                <div class="row">
-                    <div class="col-md-8">
-                        <h2>Produits du panier</h2>
 
-                        <article>
-                            <table class="table table-striped">
-                                <thead>
-                                  <tr id="titre-tableau">
-                                    <th scope="col"></th>
-                                    <th scope="col">Description</th>
-                                    <th scope="col">Quantitée</th>
-                                    <th scope="col">Prix Unitaire</th>
-                                    <th scope="col">Prix</th>
-                                  </tr>
-                                </thead>
+                <!-- Panier -->
+                <section>
+                    <h1>Panier</h1>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h2>Produits du panier</h2>
 
-
-                                <tbody id="produits">
-                                </tbody>
+                            <article>
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr id="titre-tableau">
+                                            <th scope="col"></th>
+                                            <th scope="col">Quantitée</th>
+                                            <th scope="col">Prix Unitaire</th>
+                                            <th scope="col">Prix</th>
+                                        </tr>
+                                    </thead>
 
 
-                              </table>
-                        </article>
-
-                        <article>
-                            <p id="prix-total"></p>
-                        </article>
-                    </div>
+                                    <tbody id="produits">
+                                        <!-- Remplissage JS -->
+                                    </tbody>
 
 
+                                </table>
+                            </article>
 
-                    <div class="col-md-4">
-                        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa natus quaerat expedita illum
-                            id, officiis illo dolorum assumenda facilis vitae molestias consectetur nesciunt inventore
-                            accusamus at eius minima. Amet, totam.</P>
-                    </div>
-                </div>
-            </section>
+                            <article>
+                                <p id="prix-total"></p>
+                            </article>
 
-
-
-
-
-
-            <section>
-                <h2>Information de paiement</h2>
-                <div class="formulaire">
-                <form>
-                    <!-- Nom / Prenom -->
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputName">Nom :</label>
-                            <input type="name" class="form-control" placeholder="Nom" id="inputName">
+                            <div>
+                                <a href="index.html" class="btn btn-secondary">Continuer vos achats</a>
+                            </div> 
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputLastName">Prénom :</label>
-                            <input type="text" class="form-control" placeholder="Prénom" id="inputLastName">
+
+
+
+                        <div class="col-md-4">
+                            <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa natus quaerat expedita
+                                illum
+                                id, officiis illo dolorum assumenda facilis vitae molestias consectetur nesciunt
+                                inventore
+                                accusamus at eius minima. Amet, totam.</P>
                         </div>
                     </div>
+                </section>
 
-                    <!-- Email / Tel-->
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputEmail4">Email</label>
-                            <input type="email" class="form-control" id="inputEmail4" placeholder="exemple@messagerie.fr">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="">Téléphone</label>
-                            <input type="tel" class="form-control" id="inputPassword4" placeholder="01 23 45 67 89">
-                        </div>
+
+
+
+
+                <!-- Formulaire -->
+                <section>
+                    <h2>Information de paiement</h2>
+                    <p>Validez les informations de paiement pour finaliser la commande</p>
+                    <div class="formulaire">
+                        <form>
+                            <!-- Nom / Prenom -->
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputName">Nom :</label>
+                                    <input type="name" class="form-control" placeholder="Nom" id="inputName">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputLastName">Prénom :</label>
+                                    <input type="text" class="form-control" placeholder="Prénom" id="inputLastName">
+                                </div>
+                            </div>
+
+                            <!-- Email / Tel-->
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputEmail4">Email</label>
+                                    <input type="email" class="form-control" id="inputEmail4"
+                                        placeholder="exemple@messagerie.fr">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="">Téléphone</label>
+                                    <input type="tel" class="form-control" id="inputPassword4"
+                                        placeholder="01 23 45 67 89">
+                                </div>
+                            </div>
+
+                            <!-- Adresse -->
+                            <div class="form-group">
+                                <label for="inputAddress">Address</label>
+                                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputAddress2">Address 2</label>
+                                <input type="text" class="form-control" id="inputAddress2"
+                                    placeholder="Apartment, studio, or floor">
+                            </div>
+
+                            <!-- Nom Prenom -->
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputCity">City</label>
+                                    <input type="text" class="form-control" id="inputCity">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputState">State</label>
+                                    <select id="inputState" class="form-control">
+                                        <option selected>France</option>
+                                        <option>Allemagne</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label for="inputZip">Zip</label>
+                                    <input type="text" class="form-control" id="inputZip">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                                    <label class="form-check-label" for="gridCheck">
+                                        Check me out
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Valider la commande</button>
+                        </form>
                     </div>
-                        
-                    <!-- Adresse -->
-                    <div class="form-group">
-                        <label for="inputAddress">Address</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputAddress2">Address 2</label>
-                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                    </div>
-                    
-                    <!-- Nom Prenom -->
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputCity">City</label>
-                            <input type="text" class="form-control" id="inputCity">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="inputState">State</label>
-                            <select id="inputState" class="form-control">
-                                <option selected>France</option>
-                                <option>Allemagne</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label for="inputZip">Zip</label>
-                            <input type="text" class="form-control" id="inputZip">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck">
-                            <label class="form-check-label" for="gridCheck">
-                                Check me out
-                            </label>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-secondary">Valider</button>
-                </form>
-                </div>
-            </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                </section>
             </div>
         </main>
 
