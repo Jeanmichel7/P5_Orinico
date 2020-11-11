@@ -1,36 +1,4 @@
-var getHttpRequest = function () {
-    var httpRequest = false;
-  
-    if (window.XMLHttpRequest) { // Mozilla, Safari,...
-      httpRequest = new XMLHttpRequest();
-      if (httpRequest.overrideMimeType) {
-        httpRequest.overrideMimeType('text/xml');
-      }
-    }
-    else if (window.ActiveXObject) { // IE
-      try {
-        httpRequest = new ActiveXObject("Msxml2.XMLHTTP");
-      }
-      catch (e) {
-        try {
-          httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        catch (e) {}
-      }
-    }
-  
-    if (!httpRequest) {
-      alert('Abandon :( Impossible de créer une instance XMLHTTP');
-      return false;
-    }
-  
-    return httpRequest
-}
-
-
-
-
-const getUsers = async function() {
+const panier = async function() {
     try{
         let response = await fetch('http://localhost:3000/api/teddies')
         if (response.ok) {
@@ -42,11 +10,10 @@ const getUsers = async function() {
             let prixTotal = document.getElementById("prix-total")
 
             const products = JSON.parse(localStorage.getItem('products'))
-            console.log(products[0])
+            console.log(products)
 
-            
+            // affiche les produits de la liste
             for (let i = 0 ; i < products.length ; i++) {
-
                 let totalPriceProduct = products[i].price * products[i].quantity
                 let totalPrice = totalPriceProduct
 
@@ -63,7 +30,7 @@ const getUsers = async function() {
                 totalPrice += totalPriceProduct
             }
             
-
+            // calcul prix total
             let totalPrice = 0
             for ( let i = 0 ; i < products.length ; i++) {
                 let totalPriceUnit = products[i].price * products[i].quantity
@@ -77,6 +44,53 @@ const getUsers = async function() {
             Total : <span  class="prix">${totalPrice} €</span>
             `
 
+
+            // POST data
+            function sendData(products) {
+                var XHR = new XMLHttpRequest();
+                var urlEncodedData = "";
+                var urlEncodedDataPairs = [];
+                
+                // Transformez l'objet data en un tableau de paires clé/valeur codées URL.
+                for(product in products) {
+                  urlEncodedDataPairs.push(encodeURIComponent(product) + '=' + encodeURIComponent(products[product]));
+                }
+                console.log(urlEncodedDataPairs)
+            
+                // Combinez les paires en une seule chaîne de caractères et remplacez tous
+                // les espaces codés en % par le caractère'+' ; cela correspond au comportement
+                // des soumissions de formulaires de navigateur.
+                urlEncodedData = urlEncodedDataPairs.join('&').replace(/%20/g, '+');
+                console.log(urlEncodedData)
+                // Définissez ce qui se passe en cas de succès de soumission de données
+                XHR.addEventListener('load', function(event) {
+                  alert('Ouais ! Données envoyées et réponse chargée.');
+                });
+              
+                // Définissez ce qui arrive en cas d'erreur
+                XHR.addEventListener('error', function(event) {
+                  alert('Oups! Quelque chose s\'est mal passé.');
+                });
+              
+                // Configurez la requête
+                XHR.open('POST', 'http://localhost:3000/api/teddies/order');
+              
+                // Ajoutez l'en-tête HTTP requise pour requêtes POST de données de formulaire 
+                XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+              
+                // Finalement, envoyez les données.
+                XHR.send(urlEncodedData);
+            }
+
+
+
+            document.getElementById("btnSubmit").addEventListener('click', e => {
+    
+                sendData(products)
+                
+            })
+
+
         }
         else{
             console.error('Retour du serveur : ', response.status)
@@ -84,16 +98,8 @@ const getUsers = async function() {
     } catch (e) {
         console.error(e)
     }
-
-
-
-    
-
-
-    
-    
 }
-getUsers()
+panier()
 console.log(localStorage)
 
 
@@ -104,9 +110,18 @@ console.log(localStorage)
 
 
 
+
+
+
+
+
+
+
+
+
 //document.getElementById("btnSubmit").addEventListener('click', e => {
-//    e.preventDefault()
-//
+//    e.preventDefault()//
+
 //    let value = document.getElementById("inputName").value;
 //    
 //    function send() {
@@ -115,8 +130,8 @@ console.log(localStorage)
 //        request.setRequestHeader("Content-Type", "application/json");
 //        request.send(value);
 //    
-//    }
-//
+//    }//
+
 //    
 //    send()
 //    console.log(value)
@@ -127,33 +142,32 @@ console.log(localStorage)
 
 
 
-
-let form = document.forms.namedItem("form-achat");
-form.addEventListener('submit', function (ev) {
-
-    var oOutput = document.getElementById("output");
-    var oData = new FormData(document.forms.namedItem("form-achat"));
-    console.log(oData)
-
-
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:3000/api/teddies/order", true);
-    xhr.onload = function (oEvent) {
-        if (xhr.status == 200) {
-            oOutput.innerHTML = "Uploaded!";
-        } else {
-            oOutput.innerHTML = "Erreur " + xhr.status + " occurred uploading your file.<br \/>";
-        }
-    };
-
-    console.log(JSON.stringify(oData))
-
-    xhr.send(oData);
-    ev.preventDefault();
-},
-    false);
-
-
+//let form = document.forms.namedItem("form-achat");
+//form.addEventListener('submit', function (ev) {
+//
+//    var oOutput = document.getElementById("output");
+//    var oData = new FormData(document.forms.namedItem("form-achat"));
+//    console.log(oData)
+//
+//
+//    var xhr = new XMLHttpRequest();
+//    xhr.open("POST", "http://localhost:3000/api/teddies/order", true);
+//    xhr.onload = function (oEvent) {
+//        if (xhr.status == 200) {
+//            oOutput.innerHTML = "Uploaded!";
+//        } else {
+//            oOutput.innerHTML = "Erreur " + xhr.status + " occurred uploading your file.<br \/>";
+//        }
+//    };
+//
+//    console.log(JSON.stringify(oData))
+//
+//    xhr.send(oData);
+//    ev.preventDefault();
+//},
+//    false);
+//
+//
 
 
 

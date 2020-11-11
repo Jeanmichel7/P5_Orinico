@@ -46,7 +46,6 @@ fetch('http://localhost:3000/api/teddies/' + id)
       
         // on écoute quand on click sur le bouton
         submit.addEventListener('click', function (e) {
-            //e.preventDefault()
 
             // on récupère la valeur de l'input
             var valeurInput = parseInt(document.getElementById("quantite").value)
