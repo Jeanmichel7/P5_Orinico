@@ -1,5 +1,5 @@
-const panier = async function() {
-    try{
+const panier = async function () {
+    try {
         let response = await fetch('http://localhost:3000/api/teddies')
         if (response.ok) {
             let data = await response.json()
@@ -13,7 +13,7 @@ const panier = async function() {
             console.log(products)
 
             // affiche les produits de la liste
-            for (let i = 0 ; i < products.length ; i++) {
+            for (let i = 0; i < products.length; i++) {
                 let totalPriceProduct = products[i].price * products[i].quantity
                 let totalPrice = totalPriceProduct
 
@@ -29,72 +29,63 @@ const panier = async function() {
                 `
                 totalPrice += totalPriceProduct
             }
-            
+
             // calcul prix total
             let totalPrice = 0
-            for ( let i = 0 ; i < products.length ; i++) {
+            for (let i = 0; i < products.length; i++) {
                 let totalPriceUnit = products[i].price * products[i].quantity
-                
+
                 totalPrice += totalPriceUnit
-                localStorage.setItem('montantTotal', totalPrice)               
+                localStorage.setItem('montantTotal', totalPrice)
             }
-            
+
             totalPrice = localStorage.getItem('montantTotal')
-            prixTotal.innerHTML +=`
+            prixTotal.innerHTML += `
             Total : <span  class="prix">${totalPrice} €</span>
             `
 
-
-            // POST data
-            function sendData(products) {
-                var XHR = new XMLHttpRequest();
-                var urlEncodedData = "";
-                var urlEncodedDataPairs = [];
-                
-                // Transformez l'objet data en un tableau de paires clé/valeur codées URL.
-                for(product in products) {
-                  urlEncodedDataPairs.push(encodeURIComponent(product) + '=' + encodeURIComponent(products[product]));
-                }
-                console.log(urlEncodedDataPairs)
-            
-                // Combinez les paires en une seule chaîne de caractères et remplacez tous
-                // les espaces codés en % par le caractère'+' ; cela correspond au comportement
-                // des soumissions de formulaires de navigateur.
-                urlEncodedData = urlEncodedDataPairs.join('&').replace(/%20/g, '+');
-                console.log(urlEncodedData)
-                // Définissez ce qui se passe en cas de succès de soumission de données
-                XHR.addEventListener('load', function(event) {
-                  alert('Ouais ! Données envoyées et réponse chargée.');
-                });
-              
-                // Définissez ce qui arrive en cas d'erreur
-                XHR.addEventListener('error', function(event) {
-                  alert('Oups! Quelque chose s\'est mal passé.');
-                });
-              
-                // Configurez la requête
-                XHR.open('POST', 'http://localhost:3000/api/teddies/order');
-              
-                // Ajoutez l'en-tête HTTP requise pour requêtes POST de données de formulaire 
-                XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-              
-                // Finalement, envoyez les données.
-                XHR.send(urlEncodedData);
-            }
-
-
-
             document.getElementById("btnSubmit").addEventListener('click', e => {
-    
-                sendData(products)
-                
+                e.preventDefault()
+
+                const productArray = JSON.parse(localStorage.getItem('products'))
+                let products = productArray.map(product => product.id);
+
+                fetch("http://localhost:3000/api/teddies/order", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        contact: {
+                            lastName: document.getElementById('inputLastName').value,
+                            firstName: document.getElementById('inputFirstName').value,
+                            address: document.getElementById('inputAddress').value,
+                            city: document.getElementById('inputCity').value,
+                            email: document.getElementById('inputEmail').value,
+                        },
+                        products: products
+                    }),
+                    headers: {
+                        "Content-type": "application/json; charset=UTF-8"
+                    }
+                })
+                    .then(response => response.json())
+                    .then(function (response) {
+                        
+                        console.log()
+                        //envoyé order id
+
+
+
+                    })
+                    .catch(function (error) {
+                        console.error(error)
+                    });
+
             })
 
 
         }
-        else{
+        else {
             console.error('Retour du serveur : ', response.status)
-        } 
+        }
     } catch (e) {
         console.error(e)
     }
@@ -172,33 +163,15 @@ console.log(localStorage)
 
 
 
-
-
-
-//// POSTER l'objet "contact" 
-//    // prénom - nom - adresse - ville et adresse électronique
 //const contact = {
-//    prop1 : "valeur_1",
-//    prop2 : "valeur_2",
-//    prop3 : "valeur_3" 
-//};
-//    
-//const PanierPost = async function (data) {
-//    let response = await fetch('http://localhost:3000/api/teddies/order', {
-//        method: 'POST',
-//        headers: {
-//            'Content-Type': 'text/plain' 
-//        },
-//        body: FormData()
-//    })
-//    let responseData = await response.json()
-//    console.log(responseData)
-//    if (response.ok) {
-//        console.log("ok")
-//    } else {
-//        console.log("ok")
-//
-//    }
+//    firstName: string,
+//    lastName: string,
+//    address: string,
+//    city: string,
+//    email: string
 //}
 //
-//PanierPost(contact)
+//products: [string] //<-- array of product _id
+
+
+
