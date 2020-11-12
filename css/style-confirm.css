@@ -40,7 +40,10 @@ h2{
 
 
 
-
+.normalSize{
+    font-weight: normal;
+    font-size:1.1rem;
+}
 
 
 

@@ -36,11 +36,7 @@ h3{
 
 [required] {
     border: 1px solid rgb(0, 0, 0);
- }
- :valid {
-    box-shadow: 0 0 2px 1px green;
- }
-
+}
 
 
 
@@ -128,10 +124,15 @@ article img{
     padding:20px 30px 20px 30px;
 }
 
-
-
-
-
+input {
+    border-width: 3px;
+  }
+  input:optional {
+    border-color: #008000;
+  }  
+  input:required {
+    border-color: #800000;
+  }
 
 
 

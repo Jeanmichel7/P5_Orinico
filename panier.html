@@ -125,58 +125,42 @@
                 <section>
                     <h2>Information de paiement</h2>
                     <p>Validez les informations de paiement pour finaliser la commande</p>
-                    <div class="formulaire">
-                        <form id="form" enctype="multipart/form-data" method="post" name="form-achat">
-
+                    <div class="formulaire" >
+                        <form action="confirm.html">
                             <!-- Nom / Prenom -->
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputName">Nom : </label>
-                                    <input autocomplete="" type="text" class="form-control" placeholder="Nom" id="inputLastName" name="test123" pattern="[A-Za-z]+" required>
+                                    <input type="text" class="form-control" placeholder="Nom" id="inputLastName" 
+                                     pattern="[A-Za-z]+" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputLastName">Prénom :</label>
-                                    <input type="text" class="form-control" placeholder="Prénom" id="inputFirstName"  pattern="[A-Za-z]+" required>
-                                </div>
-                            </div>
-
-                            <!-- Email / Tel-->
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="inputEmail4">Email</label>
-                                    <input type="email" class="form-control" id="inputEmail"
-                                        placeholder="exemple@messagerie.fr" required>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="">Téléphone (facultatif)</label>
-                                    <input type="tel" class="form-control"
-                                        placeholder="01 23 45 67 89">
+                                    <input type="text" class="form-control" placeholder="Prénom" id="inputFirstName" required="required" pattern="[A-Za-z]+">
                                 </div>
                             </div>
 
                             <!-- Adresse -->
                             <div class="form-group">
                                 <label for="inputAddress">Adresse</label>
-                                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
+                                <input type="text" class="form-control" id="inputAddress"
+                                placeholder="1234 Main St" required>
                             </div>
                         
                             <div class="form-row">
+                                <!-- Ville -->
                                 <div class="form-group col-md-6">
                                     <label for="inputCity">Ville</label>
                                     <input type="text" class="form-control" id="inputCity" required>
                                 </div>
-                                <div class="form-group col-md-4">
-                                    <label for="inputState">Pays</label>
-                                    <select id="inputState" class="form-control">
-                                        <option selected>France</option>
-                                        <option>Allemagne</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-2">
-                                    <label for="inputZip">Code Postale</label>
-                                    <input type="text" class="form-control" id="inputZip"  pattern="[0-9]{5}" required>
+                                <!-- Email-->
+                                <div class="form-group col-md-6">
+                                    <label for="inputEmail4">Email</label>
+                                    <input type="email" class="form-control" id="inputEmail"
+                                        placeholder="exemple@messagerie.fr" required>
                                 </div>
                             </div>
+                            
 
                             <!-- sauvegarde donné-->
                             <div class="form-group">
@@ -187,7 +171,11 @@
                                     </label>
                                 </div>
                             </div>
-                            <button id="btnSubmit" type="button" class="btn btn-primary">Valider la commande</button>
+                            <a href="confirm.html">
+                                <button id="btnSubmit" type="submit" class="btn btn-primary">
+                                    Valider la commande
+                                </button>
+                            </a>
                         </form>
                         <div id="output"></div>
                     </div>

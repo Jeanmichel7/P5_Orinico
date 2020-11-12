@@ -1,3 +1,4 @@
+//localStorage.clear()
 const panier = async function () {
     try {
         let response = await fetch('http://localhost:3000/api/teddies')
@@ -5,9 +6,9 @@ const panier = async function () {
             let data = await response.json()
             console.log(data)
 
-
+            //on récupère les balises HTML
             const produitPanier = document.getElementById('produits')
-            let prixTotal = document.getElementById("prix-total")
+            const prixTotal = document.getElementById("prix-total")
 
             const products = JSON.parse(localStorage.getItem('products'))
             console.log(products)
@@ -17,7 +18,8 @@ const panier = async function () {
                 let totalPriceProduct = products[i].price * products[i].quantity
                 let totalPrice = totalPriceProduct
 
-                produitPanier.innerHTML += `
+                produitPanier.innerHTML +=
+                    `
                 <tr id="contenu-tableau">
                     <th scope="row">
                         <img src="${products[i].imageUrl}" class="vertical-center"></img>  
@@ -39,20 +41,27 @@ const panier = async function () {
                 localStorage.setItem('montantTotal', totalPrice)
             }
 
+            //affiche le prix total
             totalPrice = localStorage.getItem('montantTotal')
-            prixTotal.innerHTML += `
+            prixTotal.innerHTML +=
+                `
             Total : <span  class="prix">${totalPrice} €</span>
             `
 
+            // évènement click bouton du formulaire
             document.getElementById("btnSubmit").addEventListener('click', e => {
-                e.preventDefault()
+                //e.preventDefault()
 
+                // récupère le tableau de produits
                 const productArray = JSON.parse(localStorage.getItem('products'))
                 let products = productArray.map(product => product.id);
+                console.log(products)
 
+                // Post les données attendu à l'API
                 fetch("http://localhost:3000/api/teddies/order", {
                     method: "POST",
                     body: JSON.stringify({
+                        // objet contact tiré du forulaire
                         contact: {
                             lastName: document.getElementById('inputLastName').value,
                             firstName: document.getElementById('inputFirstName').value,
@@ -60,28 +69,22 @@ const panier = async function () {
                             city: document.getElementById('inputCity').value,
                             email: document.getElementById('inputEmail').value,
                         },
+                        // liste des ID des produits
                         products: products
                     }),
                     headers: {
                         "Content-type": "application/json; charset=UTF-8"
                     }
                 })
-                    .then(response => response.json())
-                    .then(function (response) {
-                        
-                        console.log()
-                        //envoyé order id
-
-
-
-                    })
-                    .catch(function (error) {
-                        console.error(error)
-                    });
-
+                .then(response => response.json())
+                .then(function (response) {
+                    localStorage.setItem('orderId',response.orderId)
+                    console.log(localStorage)
+                })
+                .catch(function (error) {
+                    console.error(error)
+                });
             })
-
-
         }
         else {
             console.error('Retour du serveur : ', response.status)
@@ -92,6 +95,8 @@ const panier = async function () {
 }
 panier()
 console.log(localStorage)
+
+
 
 
 
