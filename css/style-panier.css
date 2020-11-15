@@ -193,22 +193,55 @@ footer {
 
 
 
+@media screen and (max-width: 992px) {
+    .container-fluid{
+        margin:0;
+        padding:0;
+    }
+    .btn-outline-secondary{
+        padding:0 9px 0 9px;
+    }
+}
 
 
 
-
-  @media screen and (max-width: 767px) {
+@media screen and (max-width: 767px) {
     .navbar {
       background-color: rgba(117, 155, 68, 0.945);
     }
     body{
         margin-bottom:350px;
     }
-  }
-  @media screen and (max-width: 540px) {
+}
+@media screen and (max-width: 540px) {
+
+    .container-fluid{
+        margin:0;
+        padding:0;
+    }
+
+    footer {
+      text-align: center;
+    }
+
+    article img{
+        min-width: 50px;
+    }
+    .btn-outline-secondary{
+        padding:0 2px 0 2px;
+    }
+    article .table th{
+        font-size:0.8rem;
+    }
+    article .table td{
+        font-size:0.8rem;
+    }
+    td.center{
+        padding:0;
+    }
+    td.center-price{
+        padding-left:10px;
+    }
+
     
-    
-  footer {
-    text-align: center;
-  }
 }

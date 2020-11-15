@@ -247,6 +247,11 @@ footer a {
   .navbar {
     background-color: rgba(117, 155, 68, 0.945);
   }
+  footer{
+    min-width:100px;
+    margin:0;
+    padding:0;
+}
 }
 @media screen and (max-width: 574px) {
   body{
@@ -271,10 +276,14 @@ footer a {
   article img{
     max-width:60vw;
   }
+  .article img{
+    max-width:280px;
+  }
 
   footer {
     text-align: center;
   }
+  
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -43,7 +43,7 @@ const panier = async function () {
 
                         
                     </td>
-                    <td class="center">${products[i].price} €/u</td>
+                    <td class="center center-price">${products[i].price} €/u</td>
                     <td class="center">${totalPriceProduct} €</td>
                     <td class="center"><button type="button" id="delete" disabled><i class="fa fa-trash"></i></i></button></td>
                 </tr>
