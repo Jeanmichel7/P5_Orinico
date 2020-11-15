@@ -50,13 +50,13 @@
                             <a class="nav-link" href="index.html">Index</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="produit.html">Produit</a>
+                            <a class="nav-link">Produit</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="panier.html">Panier</a>
+                            <a class="nav-link">Panier</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Confirm</a>
+                            <a class="nav-link active">Confirm</a>
                         </li>
                     </ul>
                 </div>
@@ -68,43 +68,31 @@
 
         <main>
             <div class="container">
-                <!-- résumé des produits du panier
-                    prix total
-                
-                    formulaire de commande
-                -->
                 <section>
+                    <!-- Commande confirmée -->
                     <h1>Commande confirmée !</h1>
                     <div class="row">
                         <div class="col-sm-6">
-                            <P>La commande a bien été passé.</p>
+                            <P>La commande a bien été traité.</p>
                             <p> Merci pour votre confiance. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora
                                 autem iure
                                 incidunt debitis, modi amet beatae.</P>
                         </div>
                         <div class="col-sm-4 offset-sm-2">
-                            
                             <div id="prixTotalCommande">
-                                
+                                <!-- Affiche le prix total-->
                             </div>           
-
                         </div>
+                    </div>
+
+                    <div class="row">
                         <div class="col-sm-12">
                             <div id="orderId">
-                                
                             </div>
                             
                             <article>
-                                <div id="produit1" class="row img-thumbnail">
-                                    <div id="image-produit" class="col-sm-2">
-                                        <img src="img/teddy_1.jpg" class="img-thumbnail" class="vertical-center"></img>
-                                    </div>
-                                    <div id="description-produit" class="col-sm-8">
-                                        <p>Ours en peluche tip top qualitée</p>
-                                    </div>
-                                    <div id="prix-produit" class="col-sm-2">
-                                        <p>150€</p>
-                                    </div>
+                                <div id="commande" class="row">
+                                    <!--Affiche tout les produitd / quantité-->
                                 </div>
                             </article> 
                         </div>
@@ -167,5 +155,7 @@
 </body>
 
 <script src="js/confirm.js"></script>
+<script src="js/commun.js"></script>
+
 
 </html>

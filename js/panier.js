@@ -1,4 +1,5 @@
 //localStorage.clear()
+
 const panier = async function () {
     try {
         let response = await fetch('http://localhost:3000/api/teddies')
@@ -13,24 +14,95 @@ const panier = async function () {
             const products = JSON.parse(localStorage.getItem('products'))
             console.log(products)
 
+
+            
+
             // affiche les produits de la liste
             for (let i = 0; i < products.length; i++) {
                 let totalPriceProduct = products[i].price * products[i].quantity
-                let totalPrice = totalPriceProduct
-
+                let totalPrice = totalPriceProduct 
+                totalPrice += totalPriceProduct
+                
                 produitPanier.innerHTML +=
-                    `
+                `
                 <tr id="contenu-tableau">
                     <th scope="row">
                         <img src="${products[i].imageUrl}" class="vertical-center"></img>  
                     </th>
-                    <td class="center">${products[i].quantity}</td>
+                    <td class="center">
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <button id="btn-" class="btn btn-outline-secondary" type="button" disabled>-</button>
+                            </div>
+                            <input value="${products[i].quantity}" class="quantity" disabled>
+                            <div class="input-group-append">
+                                <button id="btn+" class="btn btn-outline-secondary" type="button" disabled>+</button>
+                            </div>
+                        </div>
+
+                        
+                    </td>
                     <td class="center">${products[i].price} €/u</td>
                     <td class="center">${totalPriceProduct} €</td>
+                    <td class="center"><button type="button" id="delete" disabled><i class="fa fa-trash"></i></i></button></td>
                 </tr>
                 `
-                totalPrice += totalPriceProduct
+                
+                //let btnDel = document.getElementById('delete')
+//
+                //btnDel.addEventListener('click', function(e) {
+                //    localStorage.removeItem('products', products[i])
+                //    console.log(localStorage)
+                //})
+
+
+
+
+
+
+
+                //let valeurDansStorage = JSON.parse(localStorage.getItem('products'))[0].quantity
+                //let btnLess = document.getElementById('btn-')
+                //let btnMore = document.getElementById('btn+')
+//
+                //btnLess.addEventListener('click', function (e) {
+                //    let newQuantity = products[i].quantity--
+//
+                //    console.log('Nouvelle quantité : '+ newQuantity + '       ','Valeur dans le localStorage : ' + valeurDansStorage)
+//
+                //    // modifier le tableau products
+                //        // récupérer l'objet du tableau
+                //        let testProducts = JSON.parse(localStorage.getItem('products'))[0]
+                //        console.log(testProducts)
+                //        // modifier la valeur
+                //        let newValeur = testProducts.quantity -= 1
+                //        console.log(newValeur)
+                //        console.log(testProducts)
+//
+                //        //ajouter la nouvelle valeur au tableau
+//
+                //        localStorage.setItem('products',[newValeur])
+                //        console.log(localStorage)
+                //        
+                //    // renvoyer le tableau au localStorage (format ?)
+//
+//
+                //    
+                //})
+//
+                //btnMore.addEventListener('click', function (e) {
+                //    let newQuantity = products[i].quantity++
+                //    //localStorage.setItem('products')
+                //    
+                //})
+
+
+
+
+
             }
+
 
             // calcul prix total
             let totalPrice = 0
@@ -44,10 +116,28 @@ const panier = async function () {
             //affiche le prix total
             totalPrice = localStorage.getItem('montantTotal')
             prixTotal.innerHTML +=
-                `
-            Total : <span  class="prix">${totalPrice} €</span>
+            `
+            <span class="bold">Total :</span><span class="prix">${totalPrice} €</span>
             `
 
+
+            // ajouter/enlever quantity
+
+
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+            
             // évènement click bouton du formulaire
             document.getElementById("btnSubmit").addEventListener('click', e => {
                 //e.preventDefault()
@@ -78,12 +168,13 @@ const panier = async function () {
                 })
                 .then(response => response.json())
                 .then(function (response) {
+                    //sauvegarde l'orderId
                     localStorage.setItem('orderId',response.orderId)
-                    console.log(localStorage)
                 })
                 .catch(function (error) {
                     console.error(error)
                 });
+                localStorage.removeItem('products')
             })
         }
         else {
@@ -101,16 +192,44 @@ console.log(localStorage)
 
 
 
+//class Product {
+//    constructor (imageUrl, quantity) {
+//        this.imageUrl = imageUrl;
+//        this.quantity = quantity;
+//    }
+//}//
 
+//                               //
+//
+//
 
+//const getUsers = async function () {
+//    try {
+//        let response = await fetch('http://localhost:3000/api/teddies')
+//        if (response.ok) {
+//            let data = await response.json()
+//            console.log(data)
+//            let confirmArray = new Product(response.imageUrl, response.quantity)
+//            console.log(confirmArray)//
 
+//            let confirmArrayParse = JSON.stringify(confirmArray)
+//            console.log(confirmArrayParse)//
 
+//            localStorage.setItem('orderConfirm', confirmArray)
+//            console.log(localStorage)//
+//
+//
+//
 
-
-
-
-
-
+//        }
+//        else {
+//            console.error('Retour du serveur : ', response.status)
+//        }
+//    } catch (e) {
+//        console.error(e)
+//    }
+//}
+//getUsers()//
 
 
 

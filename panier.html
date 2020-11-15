@@ -50,13 +50,13 @@
                             <a class="nav-link" href="index.html">Index</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="produit.html">Produit</a>
+                            <a class="nav-link">Produit</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Panier</a>
+                            <a class="nav-link active">Panier</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="confirm.html">Confirm</a>
+                            <a class="nav-link">Confirm</a>
                         </li>
                     </ul>
                 </div>
@@ -75,6 +75,7 @@
                     <div class="row">
                         <div class="col-md-8">
                             <h2>Produits du panier</h2>
+                            <div class="underline"></div>
 
                             <article>
                                 <table class="table table-striped">
@@ -87,11 +88,9 @@
                                         </tr>
                                     </thead>
 
-
                                     <tbody id="produits">
                                         <!-- Remplissage JS -->
                                     </tbody>
-
 
                                 </table>
                             </article>
@@ -101,18 +100,19 @@
                             </article>
 
                             <div>
-                                <a href="index.html" class="btn btn-secondary">Continuer vos achats</a>
+                                <a href="index.html" class="btn btn-secondary mb-5">Continuer vos achats</a>
                             </div> 
                         </div>
 
 
 
-                        <div class="col-md-4">
-                            <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa natus quaerat expedita
+                        <div class="col-md-3 offset-md-1">
+                            <P class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa natus quaerat expedita
                                 illum
                                 id, officiis illo dolorum assumenda facilis vitae molestias consectetur nesciunt
                                 inventore
-                                accusamus at eius minima. Amet, totam.</P>
+                                accusamus at eius minima. Amet, totam.
+                            </P>
                         </div>
                     </div>
                 </section>
@@ -124,6 +124,7 @@
                 <!-- Formulaire -->
                 <section>
                     <h2>Information de paiement</h2>
+                    <div class="underline"></div>
                     <p>Validez les informations de paiement pour finaliser la commande</p>
                     <div class="formulaire" >
                         <form action="confirm.html">
@@ -236,5 +237,7 @@
 </body>
 
 <script src="js/panier.js"></script>
+<script src="js/commun.js"></script>
+
 
 </html>

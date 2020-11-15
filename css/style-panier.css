@@ -18,7 +18,9 @@ a {
     margin-right:20px;
     font-weight: bold;
 }
-
+.bold{
+    font-weight: bold;
+}
 
 h1{
     margin-bottom:30px;
@@ -26,11 +28,22 @@ h1{
 
 h2{
     font-size:1.6rem;
-    margin-bottom:20px;
+    margin-bottom:10px;
+    margin-top:30px;
 }
 h3{
     font-size:1rem;
 }
+.underline {
+    height: 2px;
+    width: 10vw;
+    max-width:120px;
+    margin-bottom: 30px;
+    border-radius: 2px;
+    background-color: #918e85;
+    margin-left: 30px;
+}
+
 
 
 
@@ -85,9 +98,6 @@ h3{
 
 
 
-
-
-
 article > p{
     margin-top:20px;
 }
@@ -101,9 +111,23 @@ article img{
 
 
 
-.contenu-tableau td{
-    vertical-align: middle;
+
+
+
+
+
+
+/* Panier */
+.table td, .table th{
+    vertical-align: middle!important;
 }
+.quantity{
+    width:100%;
+    max-width: 50px;
+    text-align: center;
+}
+
+
 
 
 
@@ -124,6 +148,7 @@ article img{
     padding:20px 30px 20px 30px;
 }
 
+/*
 input {
     border-width: 3px;
   }
@@ -133,7 +158,7 @@ input {
   input:required {
     border-color: #800000;
   }
-
+*/
 
 
 

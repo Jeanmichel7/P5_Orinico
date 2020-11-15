@@ -31,41 +31,6 @@ const getUsers = async function() {
                     console.log(idProduit)
                 })
             }
-
-            
-            
-
-
-
-
-
-            // router.get('/:id', teddyCtrl.getOneTeddy); // donner l'id de l'article qu'on veut et renvoi un article
-            //URL search parameter URLSearchParams()
-            // ajouter a l'url l'id du produit !
-            
-            /*
-            const insertPost = async function (data) {
-                let response = await fetch('https://jsonplaceholder.typicode.com/posts',{
-                    method: 'POST',
-                    headers: {
-                        'Content-Type':'application/json'
-                    },
-                    body: JSON.stringify(data)
-                })
-            
-                if (response.ok) {
-                    let responseData = await response.json()
-                    console.log(responseData)
-                }
-            }
-            
-            insertPost({
-                name:'Jean',
-                age:29
-            })
-
-            */
-
         }
         else{
             console.error('Retour du serveur : ', response.status)

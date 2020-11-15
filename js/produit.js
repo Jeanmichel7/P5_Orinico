@@ -4,16 +4,6 @@ let id = params.get('id')
 console.log(id)  
 
 
-class Product {
-    constructor (id, name, price, imageUrl, quantity) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
-        this.imageUrl = imageUrl;
-        this.quantity = quantity;
-    }
-}
-
 
 // fetch les propriétés
 fetch('http://localhost:3000/api/teddies/' + id)
@@ -51,14 +41,14 @@ fetch('http://localhost:3000/api/teddies/' + id)
             var valeurInput = parseInt(document.getElementById("quantite").value)
             // je créer l'objet a partir de la classe Product
             let product = new Product(id ,data.name, data.price, data.imageUrl, valeurInput) // creation d'un nouvel objet Product
- 
+            localStorage.removeItem('confirmOrder')
          
 
             //on vérifie que products existe dans le local sotrage
             if ( localStorage.getItem('products') === null ) {
                 localStorage.setItem('products', JSON.stringify([product]))
+                localStorage.setItem('confirmOrder', JSON.stringify([product]))
             } else {
-                // si c'est le mm produit => on ajoute la valeur de l'input a la quantité
                 const products = JSON.parse(localStorage.getItem('products'))
                 const produitFiltre = products.filter((test) => test.id == product.id)
 
@@ -67,10 +57,11 @@ fetch('http://localhost:3000/api/teddies/' + id)
                 } else {
                     products.push(product)
                 }
-
                 localStorage.setItem('products', JSON.stringify(products))
-
+                localStorage.setItem('confirmOrder', JSON.stringify(products))
             }
+                
+                
         })  
     })
 

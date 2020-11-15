@@ -28,7 +28,7 @@ a {
 h1{
     margin-bottom:30px;
     margin-top:120px;
-    font-size:2rem;
+    font-size:1.8rem;
 }
 
 h2{
@@ -100,42 +100,13 @@ article > p{
 
 
 
-
-
 #image-produit img{
     width: 10vw;
-    margin:0;
+    min-width:100px;
+    margin-left:10px;
+    margin-right:10px;
+    min-height: 60px;
 }
-#description-produit{  
-    padding-left:50px;
-    
-}
-#prix-produit{
-    display:flex;
-    justify-content: center;
-}
-#vertical-center{
-    margin-top:auto;
-    margin-bottom:auto;
-}
-
-
-
-
-
-
-
-/* FORMULAIRE */
-
-.formulaire{
-    border:rgb(170, 170, 170) solid 1px;
-    border-radius: 5px;
-    padding:20px 30px 20px 30px;
-}
-
-
-
-
 
 
 
@@ -148,26 +119,26 @@ footer {
     padding: 20px;
     margin-top:20px;
     padding-bottom:0;
-  }
-  footer ul, footer p {
-    list-style: none;
-    padding-left: 10px;
-    color: #656e68;
-  }
-  footer .mention {
-    text-align: center;
-    font-size: 0.8rem;
-  }
-  footer .social {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  footer form {
-    margin-left: 5px;
-  }
-  footer a {
-    color: #656e68;
-  }
+}
+footer ul, footer p {
+  list-style: none;
+  padding-left: 10px;
+  color: #656e68;
+}
+footer .mention {
+  text-align: center;
+  font-size: 0.8rem;
+}
+footer .social {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+footer form {
+  margin-left: 5px;
+}
+footer a {
+  color: #656e68;
+}
   
 
 
