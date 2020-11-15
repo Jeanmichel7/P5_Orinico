@@ -140,7 +140,7 @@ const panier = async function () {
             
             // évènement click bouton du formulaire
             document.getElementById("btnSubmit").addEventListener('click', e => {
-                //e.preventDefault()
+                e.preventDefault()
 
                 // récupère le tableau de produits
                 const productArray = JSON.parse(localStorage.getItem('products'))
@@ -160,25 +160,31 @@ const panier = async function () {
                             email: document.getElementById('inputEmail').value,
                         },
                         // liste des ID des produits
-                        products: products
+                        products:products
                     }),
                     headers: {
                         "Content-type": "application/json; charset=UTF-8"
                     }
-                })
+                },true)
                 .then(response => response.json())
                 .then(function (response) {
                     //sauvegarde l'orderId
+                    console.log(response.orderId)
                     localStorage.setItem('orderId',response.orderId)
+
+                    window.location.href = "confirm.html"
                 })
                 .catch(function (error) {
                     console.error(error)
                 });
+
                 localStorage.removeItem('products')
+                console.log(localStorage)
+                
             })
         }
         else {
-            console.error('Retour du serveur : ', response.status)
+            alert('Retour du serveur : ', response.status)
         }
     } catch (e) {
         console.error(e)

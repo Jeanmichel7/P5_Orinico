@@ -103,6 +103,9 @@ a {
 
   padding-bottom:0px;
 
+  min-height:280px;
+
+  box-shadow: 2px 2px 5px grey;
 }
 
 .article img {
@@ -111,10 +114,6 @@ a {
     border-radius: 10px;
     border: #803962 solid 1px;
 }
-
-
-
-
 
 
 

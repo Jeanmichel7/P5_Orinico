@@ -3,8 +3,6 @@ let params = (new URL(document.location)).searchParams
 let id = params.get('id')
 console.log(id)  
 
-
-
 // fetch les propriétés
 fetch('http://localhost:3000/api/teddies/' + id)
     .then(function (response) {
@@ -38,10 +36,12 @@ fetch('http://localhost:3000/api/teddies/' + id)
         submit.addEventListener('click', function (e) {
 
             // on récupère la valeur de l'input
-            var valeurInput = parseInt(document.getElementById("quantite").value)
+            let valeurInput = parseInt(document.getElementById("quantite").value)
+
             // je créer l'objet a partir de la classe Product
             let product = new Product(id ,data.name, data.price, data.imageUrl, valeurInput) // creation d'un nouvel objet Product
-            localStorage.removeItem('confirmOrder')
+            
+            localStorage.setItem('confirmOrder',"")
          
 
             //on vérifie que products existe dans le local sotrage
@@ -64,6 +64,8 @@ fetch('http://localhost:3000/api/teddies/' + id)
                 
         })  
     })
+
+    console.log(localStorage)
 
 
 

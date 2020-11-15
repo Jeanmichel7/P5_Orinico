@@ -9,7 +9,7 @@ const getUsers = async function() {
             for (article of data) {
                 articles.innerHTML += `
                     <article class="text-center col-sm-6 col-md-4 col-lg-3 mtb">
-                    <div id="ours1" class="article">
+                    <div class="article">
                         <a href="produit.html?id=${article._id}">
                             <img src="${article.imageUrl}"></img>
                             <h3 class="mt-3">${article.name}</h3>
@@ -38,6 +38,8 @@ const getUsers = async function() {
     } catch (e) {
         console.error(e)
     }
+    console.log(localStorage)
 }
 getUsers()
 
+//localStorage.clear()
