@@ -15,22 +15,21 @@ const panier = async function () {
             console.log(products)
 
 
-            
+
 
             // affiche les produits de la liste
             for (let i = 0; i < products.length; i++) {
                 let totalPriceProduct = products[i].price * products[i].quantity
-                let totalPrice = totalPriceProduct 
+                let totalPrice = totalPriceProduct
                 totalPrice += totalPriceProduct
-                
+
                 produitPanier.innerHTML +=
-                `
+                    `
                 <tr id="contenu-tableau">
                     <th scope="row">
                         <img src="${products[i].imageUrl}" class="vertical-center"></img>  
                     </th>
                     <td class="center">
-
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <button id="btn-" class="btn btn-outline-secondary" type="button" disabled>-</button>
@@ -39,18 +38,21 @@ const panier = async function () {
                             <div class="input-group-append">
                                 <button id="btn+" class="btn btn-outline-secondary" type="button" disabled>+</button>
                             </div>
-                        </div>
-
-                        
+                        </div>                        
                     </td>
                     <td class="center center-price">${products[i].price} €/u</td>
                     <td class="center">${totalPriceProduct} €</td>
                     <td class="center"><button type="button" id="delete" disabled><i class="fa fa-trash"></i></i></button></td>
                 </tr>
                 `
-                
+
+
+
+
+
+
                 //let btnDel = document.getElementById('delete')
-//
+                //
                 //btnDel.addEventListener('click', function(e) {
                 //    localStorage.removeItem('products', products[i])
                 //    console.log(localStorage)
@@ -59,18 +61,15 @@ const panier = async function () {
 
 
 
-
-
-
                 //let valeurDansStorage = JSON.parse(localStorage.getItem('products'))[0].quantity
                 //let btnLess = document.getElementById('btn-')
                 //let btnMore = document.getElementById('btn+')
-//
+                //
                 //btnLess.addEventListener('click', function (e) {
                 //    let newQuantity = products[i].quantity--
-//
+                //
                 //    console.log('Nouvelle quantité : '+ newQuantity + '       ','Valeur dans le localStorage : ' + valeurDansStorage)
-//
+                //
                 //    // modifier le tableau products
                 //        // récupérer l'objet du tableau
                 //        let testProducts = JSON.parse(localStorage.getItem('products'))[0]
@@ -79,27 +78,23 @@ const panier = async function () {
                 //        let newValeur = testProducts.quantity -= 1
                 //        console.log(newValeur)
                 //        console.log(testProducts)
-//
+                //
                 //        //ajouter la nouvelle valeur au tableau
-//
+                //
                 //        localStorage.setItem('products',[newValeur])
                 //        console.log(localStorage)
                 //        
                 //    // renvoyer le tableau au localStorage (format ?)
-//
-//
+                //
+                //
                 //    
                 //})
-//
+                //
                 //btnMore.addEventListener('click', function (e) {
                 //    let newQuantity = products[i].quantity++
                 //    //localStorage.setItem('products')
                 //    
                 //})
-
-
-
-
 
             }
 
@@ -116,19 +111,50 @@ const panier = async function () {
             //affiche le prix total
             totalPrice = localStorage.getItem('montantTotal')
             prixTotal.innerHTML +=
-            `
+                `
             <span class="bold">Total :</span><span class="prix">${totalPrice} €</span>
             `
 
 
-            // ajouter/enlever quantity
-
-
-            
-            
 
 
 
+            //Validation formulaire en temps réel
+
+            //let trucmachin = document.querySelectorAll('form input')
+            //console.log(trucmachin)
+//
+            //trucmachin.forEach(element => {
+            //    console.log(element)
+            //});
+            //console.log(document.forms[0])
+//
+//
+//
+            //let inputLastName = document.getElementById("inputLastName").value;
+            //let inputLastNameValid = false;
+            //document.getElementById("inputLastName").addEventListener("keyup", function (e) {
+//
+            //    if (inputLastName=="") {
+            //        alert("Tapez qqchose");
+            //    }
+            //    else {
+            //        inputLastNameValid = true;
+            //    }
+//
+            //});
+
+
+
+            // je récupère chaque formulaire
+
+            // je vérfie qu'ils sont tous bon
+
+            // je lance l'écoute
+
+
+
+           
 
 
 
@@ -136,8 +162,6 @@ const panier = async function () {
 
 
 
-
-            
             // évènement click bouton du formulaire
             document.getElementById("btnSubmit").addEventListener('click', e => {
                 e.preventDefault()
@@ -147,40 +171,75 @@ const panier = async function () {
                 let products = productArray.map(product => product.id);
                 console.log(products)
 
-                // Post les données attendu à l'API
-                fetch("http://localhost:3000/api/teddies/order", {
-                    method: "POST",
-                    body: JSON.stringify({
-                        // objet contact tiré du forulaire
-                        contact: {
-                            lastName: document.getElementById('inputLastName').value,
-                            firstName: document.getElementById('inputFirstName').value,
-                            address: document.getElementById('inputAddress').value,
-                            city: document.getElementById('inputCity').value,
-                            email: document.getElementById('inputEmail').value,
-                        },
-                        // liste des ID des produits
-                        products:products
-                    }),
-                    headers: {
-                        "Content-type": "application/json; charset=UTF-8"
-                    }
-                },true)
-                .then(response => response.json())
-                .then(function (response) {
-                    //sauvegarde l'orderId
-                    console.log(response.orderId)
-                    localStorage.setItem('orderId',response.orderId)
+                // Récupère valeur inputs form
+                let inputLastName = document.getElementById('inputLastName').value
+                let inputFirstName = document.getElementById('inputFirstName').value
+                let inputAddress = document.getElementById('inputAddress').value
+                let inputCity = document.getElementById('inputCity').value
+                let inputEmail = document.getElementById('inputEmail').value
 
-                    window.location.href = "confirm.html"
-                })
-                .catch(function (error) {
-                    console.error(error)
-                });
+                //regex form
+                let regexInputLastName = /^[a-zÀ-ÿ ,.'-]+$/i
+                let regexInputFirstName = /^[a-zÀ-ÿ ,.'-]+$/i
+                let regexInputAdress = /^[a-zA-Z0-9\s,.'-]{3,}$/i
+                let regexInputCity = /^([0-9]{5}|[a-zA-Z][a-zA-Z ]{0,49})$/i
+                let regexInputMail = /^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]­{1}[a-z0-9]+)*[\.]{1}[a-z]{2,6}$/
+                
+                // fonction verifierInput
+                function verifInput(regex,input) {
+                    if (regex.test(input)) {
+                        return true;
+                    }else {
+                        alert('Formulaire incomplet');
+                        // ajouter une class en css pour afficher l'erreur
+
+                        document.getElementById("btnSubmit").removeEventListener()
+                    }
+                }
+
+
+                // Vérifie les inputs
+                if (verifInput(regexInputLastName,inputLastName) 
+                    && verifInput(regexInputFirstName,inputFirstName) 
+                    && verifInput(regexInputAdress,inputAddress)   
+                    && verifInput(regexInputCity,inputCity)
+                    && verifInput(regexInputMail,inputEmail) ){
+                    
+
+                        // Post les données attendu à l'API
+                    fetch("http://localhost:3000/api/teddies/order", {
+                        method: "POST",
+                        body: JSON.stringify({
+                            // objet contact tiré du forulaire
+                            contact: {
+                                lastName: document.getElementById('inputLastName').value,
+                                firstName: document.getElementById('inputFirstName').value,
+                                address: document.getElementById('inputAddress').value,
+                                city: document.getElementById('inputCity').value,
+                                email: document.getElementById('inputEmail').value,
+                            },
+                            // liste des ID des produits
+                            products: products
+                        }),
+                        headers: {
+                            "Content-type": "application/json; charset=UTF-8"
+                        }
+                    }, true)
+                    .then(response => response.json())
+                    .then(function (response) {
+                        //sauvegarde l'orderId
+                        console.log(response.orderId)
+                        localStorage.setItem('orderId', response.orderId)
+                        window.location.href = "confirm.html"
+                    })
+                    .catch(function (error) {
+                        console.error(error)
+                    });
+                }                
 
                 localStorage.removeItem('products')
                 console.log(localStorage)
-                
+
             })
         }
         else {
