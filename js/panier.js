@@ -154,17 +154,9 @@ const panier = async function () {
 
 
 
-           
-
-
-
-
-
-
-
             // évènement click bouton du formulaire
             document.getElementById("btnSubmit").addEventListener('click', e => {
-                e.preventDefault()
+                //e.preventDefault()
 
                 // récupère le tableau de produits
                 const productArray = JSON.parse(localStorage.getItem('products'))
@@ -179,7 +171,7 @@ const panier = async function () {
                 let inputEmail = document.getElementById('inputEmail').value
 
                 //regex form
-                let regexInputLastName = /^[a-zÀ-ÿ ,.'-]+$/i
+                let regexInputLastName = /^[A-Za-zÀ-ÿ ,.'-]+$/
                 let regexInputFirstName = /^[a-zÀ-ÿ ,.'-]+$/i
                 let regexInputAdress = /^[a-zA-Z0-9\s,.'-]{3,}$/i
                 let regexInputCity = /^([0-9]{5}|[a-zA-Z][a-zA-Z ]{0,49})$/i
@@ -190,10 +182,12 @@ const panier = async function () {
                     if (regex.test(input)) {
                         return true;
                     }else {
-                        alert('Formulaire incomplet');
+                        alert('Formulaire invalid');
                         // ajouter une class en css pour afficher l'erreur
+                        const div = document.createElement('div');
+                        div.className = 'erreur-formulaire';
 
-                        document.getElementById("btnSubmit").removeEventListener()
+                        document.getElementById("btnSubmit").removeEventListener('click')
                     }
                 }
 
@@ -206,7 +200,7 @@ const panier = async function () {
                     && verifInput(regexInputMail,inputEmail) ){
                     
 
-                        // Post les données attendu à l'API
+                    // Post les données attendu à l'API
                     fetch("http://localhost:3000/api/teddies/order", {
                         method: "POST",
                         body: JSON.stringify({
@@ -231,15 +225,14 @@ const panier = async function () {
                         console.log(response.orderId)
                         localStorage.setItem('orderId', response.orderId)
                         window.location.href = "confirm.html"
+
+                        
                     })
                     .catch(function (error) {
                         console.error(error)
                     });
-                }                
-
-                localStorage.removeItem('products')
-                console.log(localStorage)
-
+                    localStorage.removeItem('products')
+                }    
             })
         }
         else {
