@@ -1,6 +1,7 @@
-# Orinoco #
 
-This is the back end server for Project 5 of the Junior Web Developer path.
+# Bienvenue sur le Site marchand Orinico!
+
+![fsqef](https://zupimages.net/up/20/47/1ady.png)
 
 ### Prerequisites ###
 
@@ -13,3 +14,35 @@ can then run the server with `node server`.
 The server should run on `localhost` with default port `3000`. If the
 server runs on another port for any reason, this is printed to the
 console when the server starts, e.g. `Listening on port 3001`.
+
+
+
+-----------------
+### Description
+  Site marchand de produits
+
+### Langages utilisés 
+  HTML/CSS/JavaScript - Bootstrap
+
+### Responsive
+
+### Durée
+  Plusieurs semaines
+
+### Outils
+  Visual Studio Code - Extension Go live - GithubDesktop - Paint3D 
+
+#### Outils d'analyse
+  GTMetrix - Tanagru - Worank - W3C
+
+#### Outis d'optimisations
+  Minify.org
+  Compressor.io
+  Gzip.org
+  ShortPixel.com
+
+#### Hébergeurs 
+  GitHub Pages - Webhoster
+
+### Progression
+  Terminé
