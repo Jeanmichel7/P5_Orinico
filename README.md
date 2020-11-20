@@ -31,19 +31,11 @@ console when the server starts, e.g. `Listening on port 3001`.
   Plusieurs semaines
 
 ### Outils
-  Visual Studio Code - Extension Go live - GithubDesktop - Paint3D 
+  Visual Studio Code - Extension Go live - GithubDesktop
 
 #### Outils d'analyse
-  GTMetrix - Tanagru - Worank - W3C
 
 #### Outis d'optimisations
-  Minify.org
-  Compressor.io
-  Gzip.org
-  ShortPixel.com
-
-#### Hébergeurs 
-  GitHub Pages - Webhoster
 
 ### Progression
   Terminé
