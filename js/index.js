@@ -1,11 +1,13 @@
 const getUsers = async function() {
     try{
+        // On récupère les données du serveur
         let response = await fetch('http://localhost:3000/api/teddies')
         if (response.ok) {
             let data = await response.json()
             console.log(data)
             const articles = document.getElementById('articles')
 
+            // boucle qui affiche la liste des produits
             for (article of data) {
                 articles.innerHTML += `
                     <article class="text-center col-sm-6 col-md-4 col-lg-3 mtb">
@@ -16,8 +18,7 @@ const getUsers = async function() {
                             <p>${article.price} €</p>
                         </a>
                     </div>
-                </article>
-                `
+                </article> `
             }
 
             // On récupère l'ID du lien cliqué
@@ -40,6 +41,6 @@ const getUsers = async function() {
     }
     console.log(localStorage)
 }
+
 getUsers()
 
-//localStorage.clear()

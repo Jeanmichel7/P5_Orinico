@@ -14,10 +14,7 @@
     <!-- Google font-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
     <link rel="stylesheet" href="css/style-produit.css">
-
-
 
     <!-- Script-->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -36,7 +33,6 @@
     <div class="container-fluid">
         <header>
             <!-- barre de navigation-->
-
             <nav class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark">
 
                 <a class="navbar-brand" href="index.html">Orinoro</a>
@@ -65,24 +61,19 @@
             </nav>
         </header>
 
-
-
-
         <main>
             <section class="container">
                 <div id="article" class="row">
 
                     <div id="image" class="col-sm-6 thumbnail">
-
                     </div>
-
 
                     <div class="col-sm-6">
                         <article>
                             <h1 id="name"></h1>
                             <p id="description"></p>
+                            <h2>Personnaliser</h2>
 
-                            <h2>Taille</h2>
                             <form action="panier.html">
                                 <div class="form-inline">
                                     <label class="my-1 mr-2" for="color">Couleur :</label>
@@ -92,25 +83,19 @@
                                 </div>
 
                                 <div class="form-inline">
-                                    <label class="my-1 mr-2" for="quantite"> Quantitée : </label>
+                                    <label class="my-1 mr-2" for="quantite"> Quantité : </label>
                                     <input  id="quantite" type="number" class="form-control" min="1" placeholder="0"
                                         size="10" autofocus required>
                                 </div>
 
                                 <div>
-
-                                    <button id="btn" type="submit" class="btn btn-secondary my-1 btn-panier">
+                                    <button id="btn" type="submit" class="btn btn-secondary my-1 btn-panier mt-2">
                                         Ajouter au panier
                                     </button>
-
                                 </div>
-
                             </form>
                         </article>
                     </div>
-
-
-
                 </div>
             </section>
         </main>
@@ -170,6 +155,5 @@
 </body>
 
 <script src="js/produit.js"></script>
-<script src="js/commun.js"></script>
 
 </html>
