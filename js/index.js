@@ -20,18 +20,6 @@ const getUsers = async function() {
                     </div>
                 </article> `
             }
-
-            // On récupère l'ID du lien cliqué
-            let liens = document.querySelectorAll('.article')
-            for (let i=0 ; i<liens.length ; i++) {
-                let lien = liens[i]
-
-                lien.addEventListener('click' , function(e) {
-                    e.preventDefault
-                    let idProduit = data[i]._id
-                    console.log(idProduit)
-                })
-            }
         }
         else{
             console.error('Retour du serveur : ', response.status)

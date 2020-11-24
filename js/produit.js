@@ -37,21 +37,20 @@ fetch('http://localhost:3000/api/teddies/' + id)
             selectColor.innerHTML += `<option>${data.colors[i]}</option>`
         }
        
-        // récupère le bouton
-        let submit = document.getElementById("btn")
-      
         // on écoute quand on click sur le bouton
+        let submit = document.getElementById("btn")
         submit.addEventListener('click', function (e) {
 
             // on récupère la valeur de l'input
             let valeurInput = parseInt(document.getElementById("quantite").value)
 
-            // je créer l'objet a partir de la classe Product
-            let product = new Product(id ,data.name, data.price, data.imageUrl, valeurInput) // creation d'un nouvel objet Product
+            // créer l'objet a partir de la classe Product
+            let product = new Product(id ,data.name, data.price, data.imageUrl, valeurInput)
+            
             localStorage.setItem('confirmOrder',"")
                  
             //si le produit n'est pas défini dans le localStorage on le créé
-            if ( localStorage.getItem('products') === null ) {
+            if (localStorage.getItem('products') === null ) {
                 localStorage.setItem('products', JSON.stringify([product]))
                 localStorage.setItem('confirmOrder', JSON.stringify([product]))
             } 
