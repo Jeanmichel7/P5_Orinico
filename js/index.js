@@ -1,4 +1,4 @@
-const getUsers = async function() {
+const afficheProduits = async function() {
     try{
         // On récupère les données du serveur
         let response = await fetch('http://localhost:3000/api/teddies')
@@ -30,5 +30,5 @@ const getUsers = async function() {
     console.log(localStorage)
 }
 
-getUsers()
+afficheProduits()
 
